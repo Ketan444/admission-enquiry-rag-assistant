@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: school_rag_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - SQLITE_DB_PATH=database/school_erp.db
+      - CHROMA_DB_DIR=chroma_db
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GEMINI_MODEL=gemini-3.5-flash
+      - LOG_LEVEL=INFO
+    volumes:
+      - school_db_volume:/workspace/database
+      - school_uploads_volume:/workspace/uploads
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 3
+    restart: always
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: school_rag_frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://backend:8000/api/v1
+    command: streamlit run frontend/app.py --server.port=8501 --server.address=0.0.0.0
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: always
+
+volumes:
+  school_db_volume:
+  school_uploads_volume:

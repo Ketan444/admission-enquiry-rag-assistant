@@ -1,0 +1,6 @@
+{
+  "name": "Admission Assistant",
+  "description": "An AI-powered Admission Enquiry Chatbot for School ERP using Gemini API and Retrieval Augmented Generation (RAG).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

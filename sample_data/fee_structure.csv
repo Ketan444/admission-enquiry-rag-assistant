@@ -1,0 +1,10 @@
+grade,admission_fee,tuition_fee_term,activity_fee,caution_deposit,frequency
+Nursery,5000,25000,3000,5000,Termly (3 Terms/Year)
+Kindergarten,5000,28000,3000,5000,Termly (3 Terms/Year)
+Grade 1,10000,35000,5000,10000,Termly (3 Terms/Year)
+Grade 2,10000,35000,5000,10000,Termly (3 Terms/Year)
+Grade 3,10000,38000,5000,10000,Termly (3 Terms/Year)
+Grade 4,10000,38000,5000,10000,Termly (3 Terms/Year)
+Grade 5,10000,42000,6000,10000,Termly (3 Terms/Year)
+Grade 6,15000,48000,6000,10000,Termly (3 Terms/Year)
+Grade 10,20000,55000,8000,15000,Termly (3 Terms/Year)
